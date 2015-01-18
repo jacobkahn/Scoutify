@@ -10,6 +10,7 @@
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquery.cookie.js"></script>
+		<script src="parsers/htmlParser.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/init.js"></script>
     	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -25,8 +26,6 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 		<script src="js/create-image.js" type="text/javascript"></script>
-		<script src="js/GMapToStatic.js" type="text/javascript"></script>
-		<script src="js/staticmap.js" type="text/javascript"></script>
         <script>
         $(document).ready(function() {
           $("#choosedate").datepicker();
@@ -181,6 +180,16 @@
 					</div>
 				</div>
 				<div id="mainmapper">
+					<div id="travelmode">
+						<b align="center">Choose Mode of Travel: </b>
+						<div id="panel" class="styled-select blue semi-square" align="center" style="width:100%; margin-bottom: 5px; margin-left: auto; margin-right: auto">
+							<select id="mode" onchange="buildMap(calendarData)">
+							  <option value="DRIVING">Driving</option>
+							  <option value="WALKING">Walking</option>
+							  <option value="BICYCLING">Bicycling</option>
+							</select>
+						</div>
+					</div>
 					<div id="directions-panel">
 						<!-- my cool panel goes here -->
 					</div>
