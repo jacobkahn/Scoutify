@@ -71,6 +71,7 @@ function toggleOptimize() {
 
 function calcRoute(inputmarkers, events) {
     "use strict";
+	var selectedMode = document.getElementById('mode').value;
     console.log("Calculating " + inputmarkers.length + " routes...");
     var wpts = [];
     for (var i = 1; i < inputmarkers.length - 1; i++) {
@@ -82,7 +83,7 @@ function calcRoute(inputmarkers, events) {
         destination: end,
         waypoints: wpts,
         optimizeWaypoints: optimize,
-        travelMode: google.maps.TravelMode.DRIVING
+        travelMode: google.maps.TravelMode[selectedMode]
     };
     directionsService.route(request, function (response, status) {
         if (status === google.maps.DirectionsStatus.OK) {
@@ -99,8 +100,9 @@ function calcRoute(inputmarkers, events) {
 						document.getElementById("warnings").innerHTML = dynamictag;
 					}
 				}
-			}
+			}			
             console.log("Directions engine OK!");
+            addDirections(parseHTML(response));
             console.log("---------------------");
             directionsDisplay.setDirections(response);
             document.getElementById("loading").style.display = "none";
@@ -131,6 +133,8 @@ function buildMap(input)
 		}
 		list_of_markers = new Array();
 	}
+	document.getElementById("email").setAttribute("value","Send Email");
+	document.getElementById("email").setAttribute("onclick","sendTheMail()");
 	if(directionsDisplay != undefined) {
 		directionsDisplay.setMap(null);
 		directionsDisplay.setPanel(null);
