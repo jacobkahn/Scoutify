@@ -2,6 +2,7 @@
 	Generates a 2D Array of events for further processing.
 	Tested and functional.
 */
+
 // Revert from event object to mappable data input
 function dictionary_deparser(sorted_event_dictionary) {
     "use strict";
