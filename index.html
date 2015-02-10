@@ -100,13 +100,17 @@
 						  </span>
 						</span>
 					</div>
+					<!--
+					HIDDEN UNTIL FULL APP AUTHENTICATION GRANTED BY FACEBOOK
 					<div id="fb">
 						<span id="fbsignin">
 						<fb:login-button size="xlarge" scope="public_profile,email,user_events" onlogin="checkLoginState();" autologoutlink="false">
 						</fb:login-button>
 						</span>
 					</div>
+				    -->
 					<!--
+					FULLY TESTED UPLOAD FUNCTIONALITY FOR WHEN SITE IS RELOCATED TO A PHP ENABLED HOSTING SERVICE
 					<div id="uploadTag" style="margin-top: 30px">
 						<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
 							<p align ="center"> Choose a calendar file (*.ics) to upload: </p>
